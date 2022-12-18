@@ -12,6 +12,9 @@
             :details="question.explain.details"></ExplainView>
     </div>
     <button @click="nextPage" :disabled="!isshow">次へ</button>
+    <div v-if="showResult">
+        得点は{{ points }}点！！
+    </div>
 </template>
 
 <script>
@@ -24,27 +27,60 @@ export default {
     },
     data() {
         return {
+            showResult: false,
             isshow: false,
-            quiz: [{
-                sentence: "日本酒の主な材料はなんでしょうか？",
-                selections: ["お米", "ブドウ", "小麦"],
-                answer: 1,
-                explain: {
-                    star_num: 1,
-                    ans: "お米",
-                    details: "日本酒は、米と麹（こうじ）と水が材料となっています。"
-                }
-            },
-            {
-                sentence: "洋酒の主な材料はなんでしょうか？",
-                selections: ["お米", "ブドウ", "小麦"],
-                answer: 1,
-                explain: {
-                    star_num: 1,
-                    ans: "お米",
-                    details: "日本酒は、米と麹（こうじ）と水が材料となっています。"
-                }
-            }
+            points: 0,
+            quiz: [
+                {
+                    sentence: "日本酒の主な材料はなんでしょうか？",
+                    selections: ["お米", "ブドウ", "小麦"],
+                    answer: 1,
+                    explain: {
+                        star_num: 1,
+                        ans: "お米",
+                        details: "日本酒は、米と麹（こうじ）と水が材料となっています。"
+                    }
+                },
+                {
+                    sentence: "有名なワイン「ボージョレ・ヌーボー」を作っている国はどこでしょうか？",
+                    selections: ["アメリカ", "フランス", "イタリア"],
+                    answer: 2,
+                    explain: {
+                        star_num: 2,
+                        ans: "フランス",
+                        details: "日本酒は、米と麹（こうじ）と水が材料となっています。"
+                    }
+                },
+                {
+                    sentence: "黒ビール、色が黒いのはなぜ？",
+                    selections: ["使用する水の違い", "麦芽の色", "着色料を使っている"],
+                    answer: 2,
+                    explain: {
+                        star_num: 3,
+                        ans: "麦芽の色",
+                        details: "日本酒は、米と麹（こうじ）と水が材料となっています。"
+                    }
+                },
+                {
+                    sentence: "日本で言われる世界第５ウィスキーは日本、アメリカ、スコットランド、アイルランド、残る一つは？",
+                    selections: ["フランス", "ドイツ", "カナダ"],
+                    answer: 3,
+                    explain: {
+                        star_num: 4,
+                        ans: "カナダ",
+                        details: "日本酒は、米と麹（こうじ）と水が材料となっています。"
+                    }
+                },
+                {
+                    sentence: "ワインに果物を入れたドリンクの名前は？",
+                    selections: ["ブルゴーニュ", "コンポ", "サングリア"],
+                    answer: 3,
+                    explain: {
+                        star_num: 5,
+                        ans: "サングリア",
+                        details: "日本酒は、米と麹（こうじ）と水が材料となっています。"
+                    }
+                },
             ],
             question_number: 0,
         }
@@ -61,7 +97,12 @@ export default {
             if (this.question_number < this.quiz.length - 1) {
                 this.question_number += 1
             } else {
-                this.question_number = 0
+                this.showResult = true
+            }
+        },
+        addPoint(n) {
+            if (n === this.question.answer) {
+                this.points++
             }
         }
     },
