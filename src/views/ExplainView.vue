@@ -1,18 +1,15 @@
 <template>
-  <div class="hello">解説やで！！！</div>
-  <div class="hello">楽しく学ぼう😊</div>
+  <div class="hello">☆解説</div>
+  <div class="hello">1．お米</div>
   <ul>
-    <li>ビール</li>
-    <li>のど越しがいい</li>
-    <li>乾杯の合図</li>
-    <li>おいしい</li>
+    <li>日本酒は、米と麹（こうじ）と水が材料となっています。</li>
   </ul>
   <button v-on:click="change">次へ</button>
 </template>
 
 <style>
 .hello {
-  color: blue;
+  color: red;
 }
 </style>
 
