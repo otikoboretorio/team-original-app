@@ -1,9 +1,9 @@
 <template>
     <h1>{{ question.sentence }}</h1>
     <div v-for="( selection, index) in question.selections" v-bind:key="selection">
-        <button @click="show">
+        <button @click="addPoint(index)">
             <div>
-                {{ index }}.{{ selection }}
+                {{ index + 1 }}.{{ selection }}
             </div>
         </button>
     </div>
@@ -101,8 +101,9 @@ export default {
             }
         },
         addPoint(n) {
-            if (n === this.question.answer) {
-                this.points++
+            this.show()
+            if (n + 1 === this.question.answer) {
+                this.points += this.question.explain.star_num
             }
         }
     },
