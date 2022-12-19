@@ -1,18 +1,23 @@
 <template>
-  <h1>{{ question.sentence }}</h1>
-  <div v-for="(selection, index) in question.selections" v-bind:key="selection">
-    <button @click="addPoint(index)">
-      <div>{{ index + 1 }}.{{ selection }}</div>
-    </button>
+  <div v-if="!showResult">
+    <h1>{{ question.sentence }}</h1>
+    <div
+      v-for="(selection, index) in question.selections"
+      v-bind:key="selection"
+    >
+      <button @click="addPoint(index)">
+        <div>{{ index + 1 }}.{{ selection }}</div>
+      </button>
+    </div>
+    <div v-if="isshow">
+      <ExplainView
+        :star_num="question.explain.star_num"
+        :ans="question.explain.ans"
+        :details="question.explain.details"
+      ></ExplainView>
+    </div>
+    <button @click="nextPage" :disabled="!isshow">次へ</button>
   </div>
-  <div v-if="isshow">
-    <ExplainView
-      :star_num="question.explain.star_num"
-      :ans="question.explain.ans"
-      :details="question.explain.details"
-    ></ExplainView>
-  </div>
-  <button @click="nextPage" :disabled="!isshow">次へ</button>
   <div v-if="showResult">得点は{{ points }}点！！</div>
 </template>
 
