@@ -21,6 +21,12 @@
   <div v-if="showResult">得点は{{ points }}点！！</div>
 </template>
 
+<style>
+div {
+  font-size: 30px;
+}
+</style>
+
 <script>
 import ExplainView from "@/components/ExplainView.vue";
 
