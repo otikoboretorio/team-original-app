@@ -1,10 +1,13 @@
 <template>
+  <!--<header class="header">aaaa</header> -->
+  <h1>お酒クイズ</h1>
   <button class="start" @click="startQuiz">クイズスタート！</button>
+  <!--<footer>aiueo</footer> -->
 </template>
 
 <style>
 .start {
-  color: black;
+  color: #333;
   font-weight: bold;
   margin-left: 200px;
   margin-right: 200px;
@@ -12,16 +15,24 @@
   font-size: 30px;
 }
 button {
-  color: black;
+  color: #333;
   font-weight: bold;
   font-size: 20px;
   margin-bottom: 50px;
   border-radius: 8px;
-  box-shadow: 0 4px 0 0 rgb(0 0 0 / 11%);
+  box-shadow: 5px 5px 0 rgb(0 0 0 / 11%);
+  transition: box-shadow 0.25s;
+  cursor: pointer;
 }
 button:hover {
-  color: rgb(46, 15, 224);
+  box-shadow: 0 0 0 #bbb;
+  /*color: rgb(46, 15, 224); */
 }
+/*footer {
+  background-color: #fff;
+  margin-top: 200px;
+}
+*/
 </style>
 
 <script>
