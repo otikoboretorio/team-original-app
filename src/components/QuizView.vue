@@ -18,7 +18,10 @@
     </div>
     <button @click="nextPage" :disabled="!isshow">次へ</button>
   </div>
-  <div v-if="showResult">得点は{{ points }}点！！</div>
+  <div v-if="showResult">
+    <div>おめでとう！！！</div>
+    得点は{{ points }}点！！
+  </div>
 </template>
 
 <style>

@@ -1,11 +1,15 @@
 <template>
-  <!--<header class="header">aaaa</header> -->
+  <header class="header"></header>
   <h1>お酒クイズ</h1>
   <button class="start" @click="startQuiz">クイズスタート！</button>
   <!--<footer>aiueo</footer> -->
 </template>
 
 <style>
+.header {
+  background-image: url(~@/assets/img/question.png);
+  height: 15rem;
+}
 .start {
   color: #333;
   font-weight: bold;
